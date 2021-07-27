@@ -1,0 +1,148 @@
+import java.util.*;
+public class Main {
+    private Scanner leer;
+    int A2,B2,N,A,B,C,D,AD,BC,BD,S;;
+    private float B1, C1, H, A1;
+    private String Nom,APaterno,ApMaterno,Dia,Mes,Año,Sexo,RFC;
+    public void Opc1(){
+        leer=new Scanner(System.in);
+		System.out.println("Ingresa el valor de la Base Mayor");
+		B1=leer.nextInt();
+		System.out.println("Ingresa el valor de la Base Mayor");
+		C1=leer.nextInt();
+		System.out.println("Ingresa el valor de la Altura");
+		H=leer.nextInt();
+		A1=((B1+C1)*H)/2;
+		System.out.println("El Resultado es "+A1);
+    }
+    public void Opc2(){
+        leer=new Scanner(System.in);
+        System.out.println("Ingresa un numero");
+		B2=leer.nextInt();
+		for (A2=1;A2<=10;A2++){
+			N=B2*A2;
+			System.out.println(" "+B2+" * "+A2+" = "+N);
+		}
+    }
+    public void Opc3(){
+        leer=new Scanner(System.in);
+        System.out.println("Ingresa el Primer Numerador");
+		A=leer.nextInt();
+		System.out.println("Ingresa el Primer Denominador");
+		B=leer.nextInt();
+		System.out.println("Ingresa el Segundo Numerador");
+		C=leer.nextInt();
+		System.out.println("Ingresa el Segundo Denominador");
+		D=leer.nextInt();
+		AD=A*D;
+		BC=B*C;
+		BD=B*D;
+		S=AD+BC;
+		System.out.println("" + A + "   " + C + "   " + AD + " + " + BC + "   " + S);
+		System.out.println("_ + _ = ___ = __");
+		System.out.println("" + B + "   " + D + "     " + BD + "      " + BD);
+    }
+    public void Opc4(){
+        leer=new Scanner(System.in);
+        System.out.println("Ingresa tu Nombre");
+        Nom=leer.next();
+        System.out.println("Ingresa tu Apellido Paterno");
+        APaterno=leer.next();
+        System.out.println("Ingresa tu Apellido Materno");
+        ApMaterno=leer.next();
+        System.out.println("Ingresa tu Año de Nacimiento");
+        Año=leer.next();
+        System.out.println("Ingresa tu Mes de Nacimiento");
+        Mes=leer.next();
+        System.out.println("Ingresa tu Dia de Nacimiento");
+        Dia=leer.next();
+        System.out.println("Ingresa tu Sexo");
+        Sexo=leer.next();
+        RFC= APaterno.trim().substring(0,2);
+        RFC=RFC.concat(ApMaterno.trim().substring(0,1));
+        RFC=RFC.concat(Nom.trim().substring(0,1));
+        RFC=RFC.concat(Año.trim().substring(2,4));
+        RFC=RFC.concat(Mes.trim().substring(0,2));
+        RFC=RFC.concat(Dia.trim().substring(0,2));
+        RFC=RFC.concat(Sexo.trim().substring(0,1));
+        System.out.println("Tu RFC es:" +RFC);
+
+    }
+    public void Opc5(){
+        System.exit(0);
+    }
+	public void Otro(){
+		System.out.println("Tu Opcion Eata Incorrecta");
+	}
+	public void Otros(){
+		System.out.println("Acceso Incorrecto");
+	}
+    public static void main(String[] args) {
+        Menus Menu1=new Menus();
+        Scanner leer=new Scanner(System.in);
+        int Opcion,Contraseña;
+        String Usuario;
+        do{
+            System.out.println("Ingresa Nombre del Usuario");
+            Usuario=leer.next();
+            System.out.println("Ingresa tu Contraseña");
+            Contraseña=leer.nextInt();
+            if (Contraseña==22102424){
+                switch(Usuario){
+                    case "Turbo":
+						System.out.println("Acceso Correcto");
+                        do{
+							System.out.println("Menu de Programas");
+							System.out.println("1)Area del Trapecio");
+							System.out.println("2)Tabla de Multiplicar Que Desee");
+							System.out.println("3)Suma de Fracciones");
+							System.out.println("4)RFC");
+							System.out.println("5)Salir");
+							System.out.println("Elige una Opcion");
+							Opcion=leer.nextInt();
+							switch(Opcion){
+								case 1:
+									Menu1.Opc1();
+									System.out.println("Si Quiere Continuar, Presione 9");
+									System.out.println("Si Quiere Salir, Presione 99");
+									Opcion=leer.nextInt();
+									break;
+								case 2:
+									Menu1.Opc2();
+									System.out.println("Si Quiere Continuar, Presione 9");
+									System.out.println("Si Quiere Salir, Presione 99");
+									Opcion=leer.nextInt();
+									break;
+								case 3:
+									Menu1.Opc3();
+									System.out.println("Si Quiere Continuar, Presione 9");
+									System.out.println("Si Quiere Salir, Presione 99");
+									Opcion=leer.nextInt();
+									break;
+								case 4:
+									Menu1.Opc4();
+									System.out.println("Si Quiere Continuar, Presione 9");
+									System.out.println("Si Quiere Salir, Presione 99");
+									Opcion=leer.nextInt();
+									break;
+								case 5: 
+									Menu1.Opc5();
+									break;
+								default:
+									Menu1.Otro();
+									break;
+							}
+                        }while(Opcion!=5);
+						break;
+                    default:
+                        Menu1.Otros();
+                        break;
+                }
+            }
+            else {
+                System.out.println("Acceso Denegado");
+            }
+        }while(Usuario!="Turbo" || Contraseña==22102424);
+    }
+
+}
